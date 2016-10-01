@@ -28,7 +28,7 @@ an object of class \code{supervisedPRIM}. See additional details
 in \link[prim]{prim.box}
 }
 \description{
-perform supervised classification using Patient Rules Induction Method (PRIM)
+perform supervised classification using Patient Rule Induction Method (PRIM)
 }
 \details{
 Fit
@@ -36,9 +36,12 @@ Fit
 \examples{
 # Train a model to determine if a flower is setosa
 data(iris)
-yData <- ifelse(iris$Species == "setosa", 1L, 0L)
+yData <- factor(ifelse(iris$Species == "setosa", "setosa", "other"), levels = c("setosa", "other"))
 xData <- iris
 xData$Species <- NULL
 primModel <- supervisedPRIM(x = xData, y = yData)
+}
+\author{
+David Shaub
 }
 
